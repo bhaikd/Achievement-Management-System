@@ -9,7 +9,7 @@ Here's the updated README:
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/Eswaramuthu/Achievement-Management-System)
 [![Python](https://img.shields.io/badge/Python-3.8+-green?logo=python)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-2.0+-lightgrey?logo=flask)](https://flask.palletsprojects.com/)
-[![License](https://img.shields.io/badge/License-Academic-orange)]()
+[![License](https://img.shields.io/badge/License-Academic-orange)](#-license)
 
 ---
 
@@ -118,6 +118,8 @@ SECRET_KEY=your-strong-secret-key-here
 | **Analytics** | Track your progress over time with visual charts |
 | **Filters** | Search by type, year, position, or keyword |
 | **Certificates** | Download proof of achievements instantly |
+| **📤 Export Cards** | Generate professional PNG/PDF cards with QR codes for LinkedIn |
+| **🔗 Share & Verify** | Share achievements with QR code verification links |
 | **Profile** | Manage personal details and preferences |
 
 ### 👨‍🏫 For Teachers
@@ -170,7 +172,7 @@ achievement-management-system/
 ├── instance/                 # Instance-specific files
 │
 ├── README.md                 # This file
-└── CONTRIBUTING.md           # Contribution guidelines
+└── Contributing.md           # Contribution guidelines
 ```
 
 ---
@@ -234,6 +236,26 @@ Each achievement category has specialized fields:
 **Conferences:** Role, presentation format, audience size  
 **Symposiums:** Theme, scope, participation mode
 
+### 📤 Achievement Card Export & Sharing
+
+Students can now generate professional achievement cards with QR codes:
+
+- **PNG Export**: High-quality 300 DPI PNG images perfect for social media
+- **PDF Export**: Printable PDF certificates ready for portfolios
+- **QR Codes**: Scannable verification codes linking to public achievement pages
+- **Social Sharing**: One-click sharing to LinkedIn, Twitter, and other platforms
+- **Public Verification**: Shareable links allow anyone to verify achievements
+- **Dark/Light Support**: Exported cards respect user's theme preference
+
+**How to Use:**
+1. Go to "My Achievements"
+2. Click "Share Achievement" on any achievement card
+3. Select "Export Card" to generate PNG/PDF
+4. Download and share on LinkedIn or social media
+5. Others can scan QR code to verify achievement
+
+For detailed documentation, see [`ACHIEVEMENT_EXPORT_GUIDE.md`](ACHIEVEMENT_EXPORT_GUIDE.md).
+
 ---
 
 ## 🌐 Navigation Map
@@ -262,7 +284,7 @@ We welcome contributions! Here's how to get started:
 5. **Push** to your branch (`git push origin feature/amazing-feature`)
 6. **Open** a Pull Request
 
-📖 Read [`CONTRIBUTING.md`](CONTRIBUTING.md) for detailed guidelines.
+📖 Read [`Contributing.md`](Contributing.md) for detailed guidelines.
 
 ---
 
@@ -277,9 +299,11 @@ We welcome contributions! Here's how to get started:
 - [x] Role-based access control (RBAC)
 - [x] Admin approval workflow
 
-### Phase 2 (Planned)
+### Phase 2 (In Progress)
+- [x] 🔗 LinkedIn integration & social sharing
+- [x] 📤 Achievement card export (PNG/PDF)
+- [x] QR code verification system
 - [ ] 📱 Mobile app (iOS + Android)
-- [ ] 🔗 LinkedIn integration for sharing
 - [ ] 🤖 AI-powered certificate validation
 - [ ] 📧 Email notifications for new achievements
 - [ ] 🌍 Multi-language support
