@@ -361,7 +361,7 @@
                                                 {{ 'Approved' if activity.is_approved else 'Pending' }}
                                             </span>
                                         </td>
-                                        <td>{{ activity.created_at[:10] }}</td>
+                                        <td>{{ activity.created_at[:10] if activity.created_at else 'N/A' }}</td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>

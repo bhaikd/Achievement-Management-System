@@ -35,7 +35,15 @@ def make_session_permanent():
 
 
 # ✅ Portable DB path (works on Windows/Linux/Vercel)
-DB_PATH = os.path.join(os.path.dirname(__file__), "ams.db")
+class DbPathProxy:
+    def __fspath__(self):
+        return app.config.get('DATABASE', os.path.join(os.path.dirname(__file__), "ams.db"))
+    def __str__(self):
+        return self.__fspath__()
+    def __repr__(self):
+        return self.__fspath__()
+
+DB_PATH = DbPathProxy()
 
 # Define upload folder path for certificates
 UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static", "uploads")
@@ -799,6 +807,8 @@ def teacher_dashboard():
     avg_count = len(avg_students)
     low_count = len(low_students)
         
+    connection.close()
+
     return render_template(
        "teacher_dashboard.html",
         teacher=teacher_data,
@@ -1399,7 +1409,7 @@ def student():
 
         if student_data and check_password_hash(student_data[4], password):
             # Check if student is approved
-            if not student_data[7]:  # is_approved is at index 7
+            if not student_data[8]:  # is_approved is at index 8 (index 7 is profile_picture)
                 return render_template("student.html", error="Your account is pending admin approval. Please wait for activation.")
             
             session["logged_in"] = True

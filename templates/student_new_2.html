@@ -18,40 +18,43 @@
       margin: 0;
       padding: 0;
     }
+  </style>
+  <script>
+    function validatePasswords(event) {
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirm-password").value;
+        const message = document.getElementById("password-message");
 
-        function validatePasswords(event) {
-            const password = document.getElementById("password").value;
-            const confirmPassword = document.getElementById("confirm-password").value;
-            const message = document.getElementById("password-message");
+        console.log("Validating passwords...");
 
-            console.log("Validating passwords...");
+        const strongPassword =
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
 
-            const strongPassword =
-                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
-
-            if (!strongPassword.test(password)) {
-                event.preventDefault();
-                message.textContent =
-                    "❌ Password must contain uppercase, lowercase, number, special character and minimum 8 characters.";
-                message.style.color = "red";
-                return false;
-            }
-
-            if (password !== confirmPassword) {
-                event.preventDefault(); // This stops form submission
-                message.textContent = "❌ Passwords do not match!";
-                message.style.color = "red";
-                console.log("Password validation failed - preventing submission");
-                return false;
-            } else {
-                message.textContent = "✅ Passwords match!";
-                message.style.color = "limegreen";
-                console.log("Password validation passed - allowing submission");
-                return true; // Explicitly return true to allow form submission
-            }
+        if (!strongPassword.test(password)) {
+            event.preventDefault();
+            message.textContent =
+                "❌ Password must contain uppercase, lowercase, number, special character and minimum 8 characters.";
+            message.style.color = "var(--primary-color)";
+            message.style.display = "block";
+            return false;
         }
-    </script>
-    <style>
+
+        if (password !== confirmPassword) {
+            event.preventDefault(); // This stops form submission
+            message.textContent = "❌ Passwords do not match!";
+            message.style.color = "var(--primary-color)";
+            message.style.display = "block";
+            console.log("Password validation failed - preventing submission");
+            return false;
+        } else {
+            message.textContent = "";
+            message.style.display = "none";
+            console.log("Password validation passed - allowing submission");
+            return true; // Explicitly return true to allow form submission
+        }
+    }
+  </script>
+  <style>
         /* Additional styles to make select elements match input styling */
         .input-box select {
             width: 100%;
@@ -552,25 +555,6 @@
       }
     }
   </style>
-  <script>
-    function validatePasswords(event) {
-        const password = document.getElementById("password").value;
-        const confirmPassword = document.getElementById("confirm-password").value;
-        const message = document.getElementById("password-message");
-
-        if (password !== confirmPassword) {
-            event.preventDefault(); // This stops form submission
-            message.textContent = "❌ Passwords do not match!";
-            message.style.color = "var(--primary-color)";
-            message.style.display = "block";
-            return false;
-        } else {
-            message.textContent = "";
-            message.style.display = "none";
-            return true;
-        }
-    }
-  </script>
 </head>
 
 <body>
